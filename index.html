@@ -13,11 +13,12 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  html,body{overflow-x:hidden;max-width:100%}
   .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
   section{padding:80px 0}
   .eyebrow{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.24em;color:var(--accent);margin-bottom:16px}
-  h1{font-size:clamp(38px,6.2vw,72px);font-weight:900;line-height:1.0;letter-spacing:-.04em}
-  h2{font-size:clamp(28px,4.2vw,48px);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:16px}
+  h1{font-size:clamp(34px,6.2vw,72px);font-weight:900;line-height:1.02;letter-spacing:-.04em;text-wrap:balance;overflow-wrap:break-word}
+  h2{font-size:clamp(27px,4.2vw,48px);font-weight:800;line-height:1.08;letter-spacing:-.03em;margin-bottom:16px;text-wrap:balance;overflow-wrap:break-word}
   h3{font-size:20px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
   p.lead{font-size:clamp(17px,2vw,21px);color:var(--muted);font-weight:500}
   .accent{color:var(--accent)}.center{text-align:center}.center p.lead{max-width:640px;margin:0 auto}
@@ -31,9 +32,10 @@
   .tag{font-size:14px;color:var(--muted)}.tag b{color:var(--txt)}
 
   /* search mock */
-  .search{background:#fff;border-radius:18px;padding:22px 24px;margin-top:52px;box-shadow:0 30px 70px rgba(0,0,0,.5);max-width:620px}
-  .search .bar{display:flex;align-items:center;gap:13px;border:1px solid #e3e3e3;border-radius:999px;padding:14px 20px}
-  .search .bar .q{font-size:22px;color:#202124;font-weight:600}
+  .search{background:#fff;border-radius:18px;padding:22px 24px;margin-top:52px;box-shadow:0 30px 70px rgba(0,0,0,.5);max-width:620px;overflow:hidden}
+  .search .bar{display:flex;align-items:center;gap:13px;border:1px solid #e3e3e3;border-radius:999px;padding:14px 20px;min-width:0}
+  .search .bar .q{font-size:22px;color:#202124;font-weight:600;min-width:0;overflow-wrap:anywhere}
+  .search .ttl,.search .site{overflow-wrap:anywhere}
   .search .res{position:relative;margin-top:16px;padding:12px 6px 2px}
   .search .ad{display:inline-block;font-size:15px;font-weight:800;color:#202124;background:#e8f0fe;padding:3px 10px;border-radius:5px;margin-bottom:8px}
   .search .site{font-size:16px;color:#5f6368}
@@ -71,6 +73,21 @@
 
   footer{border-top:1px solid var(--line);padding:52px 0;text-align:center;color:var(--muted);font-size:14px}
   @media(max-width:780px){.g3,.steps{grid-template-columns:1fr}}
+  @media(max-width:640px){
+    section{padding:60px 0}
+    .hero{padding:80px 0 60px}
+    h1{font-size:clamp(30px,8.2vw,54px)}
+    .hero p.lead{max-width:100%}
+    .search{max-width:100%}
+    .search .bar .q{font-size:17px}
+    .search .bar{padding:12px 16px;gap:10px}
+    .search .ttl{font-size:19px}
+    .search .site{font-size:14px}
+    .search .tag-you{font-size:11px;padding:5px 9px;top:8px;right:8px}
+    .teste{padding:34px 22px}
+    .tl{padding:0 0 34px 64px}
+    .tl .num{width:44px;height:44px;font-size:18px}
+  }
 </style>
 </head>
 <body>
@@ -80,7 +97,7 @@
   <div class="wrap">
     <div class="badge"><span class="dot"></span> Gestão de Google Ads · feito pra você</div>
     <div class="eyebrow">Seu negócio no Google</div>
-    <h1>Coloco sua empresa<br>no Google. E cuido<br>de tudo <span class="accent">por você</span>.</h1>
+    <h1>Coloco sua empresa no Google. E cuido de tudo <span class="accent">por você</span>.</h1>
     <p class="lead">Seu cliente tá te procurando agora mesmo. Eu monto seus anúncios, coloco no ar e trago os contatos direto pro seu <b style="color:var(--txt)">WhatsApp</b>. Você cuida do seu negócio — do Google cuido eu.</p>
     <div class="hero-cta">
       <a href="https://wa.me/5544999271916?text=Oi!%20Quero%20saber%20do%20servi%C3%A7o%20de%20Google%20Ads" class="btn">💬 Falar comigo no WhatsApp</a>
@@ -99,7 +116,7 @@
 <section>
   <div class="wrap center">
     <div class="eyebrow">A real</div>
-    <h2>Se você não aparece no Google,<br>quem aparece é o concorrente.</h2>
+    <h2>Se você não aparece no Google, quem aparece é o concorrente.</h2>
     <p class="lead">Todo dia gente procura no Google exatamente o que você vende. Se o seu negócio não está lá em cima, esse cliente vai pro concorrente que anuncia — e você nem fica sabendo que perdeu.</p>
   </div>
 </section>
@@ -108,7 +125,7 @@
 <section style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap center">
     <div class="eyebrow">Como funciona</div>
-    <h2>Simples pra você.<br>O trabalho é meu.</h2>
+    <h2>Simples pra você. O trabalho é meu.</h2>
     <div class="timeline">
       <div class="tl"><div class="num">1</div><h3>Você me conta</h3><p>Um papo rápido no WhatsApp: o que você faz, onde atende e o que quer atrair. Sem enrolação.</p></div>
       <div class="tl"><div class="num">2</div><h3>Eu monto e ponho no ar</h3><p>Crio seus anúncios no Google — e, se precisar, sua página de venda também. Você aprova antes de ligar.</p></div>
@@ -132,7 +149,7 @@
 <section class="recebe" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap center">
     <div class="eyebrow">O que você recebe</div>
-    <h2>Não é "cria e some".<br>É acompanhamento de verdade.</h2>
+    <h2>Não é "cria e some". É acompanhamento de verdade.</h2>
     <ul>
       <li><b>Google Ads montado e gerenciado</b> — não é impulsionar e torcer; é otimização toda semana.</li>
       <li><b>Página de venda (se precisar)</b> — um destino bonito que transforma clique em contato.</li>
@@ -147,7 +164,7 @@
 <section>
   <div class="wrap center">
     <div class="eyebrow">Pra quem é</div>
-    <h2>Feito pra negócio que<br>vive de cliente.</h2>
+    <h2>Feito pra negócio que vive de cliente.</h2>
     <div class="grid g3" style="margin-top:40px;text-align:left">
       <div class="card"><span class="ic">🔧</span><h3>Serviço local</h3><p>Eletricista, encanador, dedetizadora, chaveiro, assistência — quem atende na região.</p></div>
       <div class="card"><span class="ic">💇</span><h3>Salão, clínica, estética</h3><p>Quem depende de agenda cheia e quer que marquem pelo WhatsApp.</p></div>
@@ -159,7 +176,7 @@
 <!-- CTA FINAL -->
 <section class="center" style="background:radial-gradient(1000px 500px at 50% 120%,rgba(0,230,118,.14),transparent 60%)">
   <div class="wrap">
-    <h2>Bora colocar seu negócio<br>na frente do concorrente?</h2>
+    <h2>Bora colocar seu negócio na frente do concorrente?</h2>
     <p class="lead" style="margin:18px auto 32px">Me chama no WhatsApp. A gente conversa sem compromisso e eu já te digo se dá pra fazer no seu caso.</p>
     <a href="https://wa.me/5544999271916?text=Oi!%20Quero%20saber%20do%20servi%C3%A7o%20de%20Google%20Ads" class="btn" style="font-size:19px;padding:21px 40px">💬 Quero falar no WhatsApp</a>
     <p style="margin-top:16px;font-size:22px;font-weight:800;color:var(--txt)">📱 (44) 99927-1916</p>
